@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
       name: params[:name],
       location: params[:location],
       price: params[:price]
+      description: params[:description]
     )
     reserved.to_json
   end
@@ -23,6 +24,7 @@ class ApplicationController < Sinatra::Base
     hotel.update(
       name: params[:name],
       price: params[:price]
+      description: params[:description]
     )
     hotel.to_json
   end
