@@ -3,7 +3,6 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   #hotel routes get method
-
   get "/hotels" do
     hotels = Hotel.all
     hotels.to_json
@@ -13,7 +12,7 @@ class ApplicationController < Sinatra::Base
     reserved = Hotel.create(
       name: params[:name],
       location: params[:location],
-      price: params[:price]
+      price: params[:price],
       description: params[:description]
     )
     reserved.to_json
@@ -23,7 +22,7 @@ class ApplicationController < Sinatra::Base
     hotel = Hotel.find(params[:id])
     hotel.update(
       name: params[:name],
-      price: params[:price]
+      price: params[:price],
       description: params[:description]
     )
     hotel.to_json
@@ -34,31 +33,32 @@ class ApplicationController < Sinatra::Base
     hotel.destroy
     hotel.to_json
   end
+end
   #customers_reviews routes.
   #get method.
-  get "/customer_reviews" do
-    reviews = CustomerReview.all
-    reviews.to_json
-  end
-  #post method
-  post "/customer_reviews" do
-    new_review = CustomerReview.create(
-      comment: params[:comment]
-    )
-    new_review.to_json
-  end
-  #patch method
-  patch "/customer_reviews/:id" do
-    reviews = CustomerReview.find(params[:id])
-    reviews.update(
-      comment: params[:comment]
-    )
-    reviews.to_json
-  end
-#delete method
-delete "/customer_reviews/:id" do
-  reviews = CustomerReview.find(params[:id])
-  reviews.destroy
-  reviews.to_json
-end
-end
+#   get "/reviews" do
+#     reviews = Review.all
+#     reviews.to_json
+#   end
+#   #post method
+#   post "/reviews" do
+#     new_reviews = Review.create(
+#       comment: params[:comment]
+#     )
+#     new_reviews.to_json
+#   end
+#   #patch method
+#   patch "/reviews/:id" do
+#     reviews = Review.find(params[:id])
+#     reviews.update(
+#       comment: params[:comment]
+#     )
+#     reviews.to_json
+#   end
+# #delete method
+# delete "/reviews/:id" do
+#   reviews = Review.find(params[:id])
+#   reviews.destroy
+#   reviews.to_json
+# end
+# end
