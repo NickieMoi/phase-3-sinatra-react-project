@@ -33,32 +33,31 @@ class ApplicationController < Sinatra::Base
     hotel.destroy
     hotel.to_json
   end
-end
   #customers_reviews routes.
   #get method.
-#   get "/reviews" do
-#     reviews = Review.all
-#     reviews.to_json
-#   end
-#   #post method
-#   post "/reviews" do
-#     new_reviews = Review.create(
-#       comment: params[:comment]
-#     )
-#     new_reviews.to_json
-#   end
-#   #patch method
-#   patch "/reviews/:id" do
-#     reviews = Review.find(params[:id])
-#     reviews.update(
-#       comment: params[:comment]
-#     )
-#     reviews.to_json
-#   end
-# #delete method
-# delete "/reviews/:id" do
-#   reviews = Review.find(params[:id])
-#   reviews.destroy
-#   reviews.to_json
-# end
-# end
+  get "/reviews" do
+    reviews = Review.all
+    reviews.to_json
+  end
+  #post method
+  post "/reviews" do
+    new_review = Review.create(
+      comment: params[:comment]
+    )
+    new_review.to_json
+  end
+  #patch method
+  patch "/reviews/:id" do
+    reviews = Review.find(params[:id])
+    reviews.update(
+      comment: params[:comment]
+    )
+    reviews.to_json
+  end
+#delete method
+delete "/reviews/:id" do
+  reviews = Review.find(params[:id])
+  reviews.destroy
+  reviews.to_json
+end
+end
