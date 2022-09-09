@@ -1,8 +1,8 @@
 class CreateReviews < ActiveRecord::Migration[6.1]
-  def change 
+  def change
     create_table :reviews do |t|
-    t.string :name
-      t.string :description
+      t.string :body
+      t.integer :hotel_id
       t.timestamps
     end
   end
